@@ -1,0 +1,77 @@
+.heroBannerContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 16px auto;
+}
+
+.heroBannerImage {
+  width: 100%;
+}
+
+.heroBannerContent {
+  position: absolute;
+  text-align: center;
+  color: white;
+}
+
+.heroBannerTitle {
+  font-family: Merriweather;
+  font-style: italic;
+  font-size: 36px;
+  font-weight: 300;
+  line-height: 100%;
+  letter-spacing: 0;
+  margin: 5px auto;
+}
+
+.heroBannerSubtitle {
+  font-family: Merriweather;
+  font-style: italic;
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 100%;
+  letter-spacing: 0;
+  margin: 5px auto;
+}
+
+.heroBannerHighlight {
+  font-family: Merriweather;
+  font-style: italic;
+  font-size: 26px;
+  font-weight: 300;
+  line-height: 100%;
+  letter-spacing: 0;
+  margin: 5px auto;
+}
+
+.desktop {
+  display: block;
+}
+
+.mobile {
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .desktop {
+    display: none;
+  }
+
+  .mobile {
+    display: block;
+  }
+
+  .heroBannerTitle {
+    font-size: 24px;
+  }
+
+  .heroBannerSubtitle {
+    font-size: 20px;
+  }
+
+  .heroBannerHighlight {
+    font-size: 18px;
+  }
+}

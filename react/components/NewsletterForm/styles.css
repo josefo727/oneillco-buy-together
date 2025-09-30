@@ -1,0 +1,56 @@
+.newsletterFormContainer {
+  width: 100%;
+  margin-top: 20px;
+  padding: 5px 55px;
+  background: #FFF4FA;
+}
+
+.newsletterFormTitle {
+  font-family: Merriweather;
+  font-style: italic;
+  font-size: 36px;
+  font-weight: 300;
+  line-height: 100%;
+  letter-spacing: 0;
+  margin: 5px auto;
+}
+
+.newsletterFormDescription {
+  margin-top: 20px;
+  font-family: Public Sans;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0;
+}
+
+.newsletterForm {
+  width: 35%;
+  margin: auto;
+}
+
+.newsletterFormInput {
+  width: 100%;
+  border: 1px solid #E2E2E2;
+  height: 40px;
+  margin: 5px auto;
+  padding: 8px 15px;
+  opacity: 1;
+  border-width: 1px;
+  border-radius: 5px;
+}
+
+.newsletterFormButton {
+  width: 100%;
+  margin: 5px auto;
+  padding: 9px;
+  border-radius: 5px;
+  background: #A3A3A3;
+  color: #ffffff;
+  font-family: Public Sans;
+  font-weight: Bold;
+  font-size: 16px;
+  line-height: 18px;
+  letter-spacing: 0;
+  cursor: pointer;
+}

@@ -1,0 +1,12 @@
+.richTextCustomContainer {
+  justify-items: center;
+}
+.richTextCustomContainer p {
+  text-align: center;
+  margin: 15px;
+}
+@media screen and (max-width: 1024px) {
+  .richTextCustomContainer p {
+    text-align: justify;
+  }
+}

@@ -1,0 +1,12 @@
+declare module 'vtex.css-handles';
+declare module 'vtex.product-context';
+declare module 'vtex.product-summary';
+declare module 'vtex.store-resources';
+declare module 'vtex.flex-layout';
+declare module 'vtex.rich-text';
+declare module 'vtex.store-components';
+declare module 'vtex.store';
+declare module 'vtex.render-runtime';
+declare module 'vtex.pixel-manager';
+declare module 'vtex.order-items/OrderItems';
+declare module 'vtex.styleguide';

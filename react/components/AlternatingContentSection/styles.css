@@ -1,0 +1,38 @@
+.container-beauty-catalog {
+  max-width: 1250px;
+  margin: auto;
+}
+.content-beauty-catalog {
+  display: flex;
+  align-items: center;
+}
+.reverse {
+  flex-direction: row-reverse;
+}
+.titles-beauty-catalog {
+  margin: 16px auto;
+}
+.info-beauty-catalog-image,
+.info-beauty-catalog {
+  width: 50%;
+  padding: 25px 20px;
+  white-space: pre-line;
+}
+.info-beauty-catalog-image img {
+  width: 100%;
+}
+
+@media screen and (max-width: 1024px) {
+  .content-beauty-catalog {
+    display: flex;
+    flex-direction: column;
+  }
+  .info-beauty-catalog {
+    width: 100%;
+    padding: 15px;
+  }
+  .info-beauty-catalog-image {
+    width: 100%;
+    padding: 0;
+  }
+}

@@ -1,0 +1,68 @@
+.TitleComponentContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  padding: 15px;
+}
+
+.Title {
+  font-family: Merriweather;
+  font-style: italic;
+  font-size: 36px;
+  font-weight: 300;
+  line-height: 100%;
+  letter-spacing: 0;
+  margin: 5px auto;
+}
+
+.Subtitle {
+  font-family: Merriweather;
+  font-style: italic;
+  font-size: 32px;
+  font-weight: 300;
+  line-height: 100%;
+  letter-spacing: 0;
+  margin: 5px auto;
+}
+
+.Highlight {
+  font-family: Merriweather;
+  font-style: italic;
+  font-size: 26px;
+  font-weight: 300;
+  line-height: 100%;
+  letter-spacing: 0;
+  margin: 5px auto;
+}
+
+.desktop {
+  display: block;
+}
+
+.mobile {
+  display: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .desktop {
+    display: none;
+  }
+
+  .mobile {
+    display: block;
+  }
+
+  .Title {
+    font-size: 24px;
+  }
+
+  .Subtitle {
+    font-size: 20px;
+  }
+
+  .Highlight {
+    font-size: 18px;
+  }
+}
