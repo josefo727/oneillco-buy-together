@@ -15,12 +15,7 @@
   },
   "product-group#buy-together": {
     "props": {
-      "productsAndSkuIds": [
-        "1087-4333",
-        "1087-4334",
-        "1087-4335",
-        "1087-4336"
-      ]
+      "collectionIds": [226, 243, 252]
     }
   }
 }

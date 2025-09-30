@@ -1,3 +1,4 @@
 export interface ProductGroupProps {
-  productsAndSkuIds?: string[];
+  productsAndSkuIds?: string[]
+  collectionIds?: number[]
 }
