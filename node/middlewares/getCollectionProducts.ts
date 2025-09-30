@@ -77,7 +77,6 @@ export async function getCollectionProducts(ctx: Context, next: () => Promise<an
     await next()
   } catch (error) {
     logger.error({ message: 'get-collection-products-handler-error', error })
-    console.log({ message: 'get-collection-products-handler-error', error })
     ctx.status = 500
     ctx.body = { message: 'Internal Server Error' }
   }
