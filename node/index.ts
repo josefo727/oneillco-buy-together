@@ -4,6 +4,7 @@ import { method, Service } from '@vtex/api'
 import { Clients } from './clients'
 import { getSku } from './middlewares/getSku'
 import { getProductSkus } from './middlewares/getProductSkus'
+import { getCollectionProducts } from './middlewares/getCollectionProducts'
 
 const TIMEOUT_MS = 30000
 
@@ -29,6 +30,9 @@ export default new Service({
     }),
     'get-product-skus': method({
       GET: [getProductSkus],
+    }),
+    'get-collection-products': method({
+      GET: [getCollectionProducts],
     }),
   },
 })

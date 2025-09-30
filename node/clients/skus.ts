@@ -22,4 +22,10 @@ export default class SkusClient extends JanusClient {
   public async getPriceBySkuId(skuId: string): Promise<any> {
     return this.http.get(`/api/pricing/prices/${skuId}`)
   }
+
+  public async getCollectionProducts(collectionId: string): Promise<any> {
+    return this.http.get(
+      `/api/catalog/pvt/collection/${collectionId}/products?pageSize=100&Active=true`
+    )
+  }
 }

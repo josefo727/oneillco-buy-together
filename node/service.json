@@ -13,6 +13,10 @@
     "get-product-skus": {
       "path": "/_v/get-product-skus/:productId",
       "public": true
+    },
+    "get-collection-products": {
+      "path": "/_v/get-collection-products/:collectionId",
+      "public": true
     }
   }
 }

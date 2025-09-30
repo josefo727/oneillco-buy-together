@@ -22,8 +22,6 @@ export async function getProductSkus(ctx: Context, next: () => Promise<any>) {
 
     const skusClient = clients.getSkusClient(vtex, appKey, appToken)
 
-    console.log({productId})
-
     const variations = await skusClient.getProductVariationsById(productId)
     const skuIds = variations.skus.map((sku: any) => sku.sku)
 
