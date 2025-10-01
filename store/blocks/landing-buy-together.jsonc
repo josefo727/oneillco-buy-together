@@ -2,88 +2,25 @@
   "store.custom#landing-buy-together": {
     "blocks": [
       "flex-layout.row#hero-banner",
-      "flex-layout.row#rich-text-custom",
-      "flex-layout.row#alternating-content-section-component",
-      "flex-layout.row#mini-banner-01",
-      "flex-layout.row#titles-01",
-      "flex-layout.row#rich-text-custom-01",
-      "flex-layout.row#shoppable-image",
       "flex-layout.row#product-group",
-      "flex-layout.row#mini-banner-02",
-      "flex-layout.row#titles-02",
-      "flex-layout.row#rich-text-custom-02"
-      //      "flex-layout.row#recommendations-shelf"
+      "flex-layout.row#hero-banner-2"
     ]
   },
-
   "flex-layout.row#hero-banner": {
     "title": "hero banner",
     "children": ["hero-banner"]
   },
-
-  "flex-layout.row#rich-text-custom": {
-    "title": "richText custom",
-    "children": ["rich-text-custom"]
-  },
-
-  "flex-layout.row#alternating-content-section-component": {
-    "title": "Alternating content section component",
-    "children": ["alternating-content-section-component"]
-  },
-
-  "flex-layout.row#shoppable-image": {
-    "title": "shoppable image",
-    "children": ["shoppable-image"]
-  },
-
-  "shoppable-image": {
-    "props": {}
-  },
-
   "flex-layout.row#product-group": {
     "title": "product group",
     "children": ["product-group#buy-together"]
   },
-
   "product-group#buy-together": {
     "props": {
-      "productsAndSkuIds": [
-        "9013-30338",
-        "10372-36363",
-        "10796-38306",
-        "10947-39618"
-      ]
+      "collectionIds": [226, 243, 252]
     }
   },
-
-  "flex-layout.row#mini-banner-01": {
-    "title": "mini banner 01",
+  "flex-layout.row#hero-banner-2": {
+    "title": "hero banner",
     "children": ["hero-banner"]
-  },
-  "flex-layout.row#titles-01": {
-    "title": "titles component 01",
-    "children": ["titles-component"]
-  },
-  "flex-layout.row#rich-text-custom-01": {
-    "title": "richText custom 01",
-    "children": ["rich-text-custom"]
-  },
-
-  "flex-layout.row#recommendations-shelf": {
-    "title": "recommendations shelf",
-    "children": ["recommendations-shelf"]
-  },
-
-  "flex-layout.row#mini-banner-02": {
-    "title": "mini banner 02",
-    "children": ["hero-banner"]
-  },
-  "flex-layout.row#titles-02": {
-    "title": "titles component 02",
-    "children": ["titles-component"]
-  },
-  "flex-layout.row#rich-text-custom-02": {
-    "title": "richText custom 02",
-    "children": ["rich-text-custom"]
   }
 }

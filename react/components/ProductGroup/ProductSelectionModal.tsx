@@ -110,8 +110,8 @@ const ProductSelectionModal: React.FC<Props> = ({
                   <h3 className={styles['modal-product-name']}>
                     {product.name}
                   </h3>
-                  <div className={styles['modal-product-price']}>
-                    {formatPrice(selectedSku.bestPrice / 100)}
+                  <div className={styles["modal-product-reference"]}>
+                    Referencia: 1N00297-0000-XS
                   </div>
                   <SkuSelector
                     variation={product}
@@ -120,6 +120,9 @@ const ProductSelectionModal: React.FC<Props> = ({
                       handleSkuChange(product.productId, newSku)
                     }
                   />
+                  <div className={styles['modal-product-price']}>
+                    {formatPrice(selectedSku.bestPrice / 100)}
+                  </div>
                   <button
                     className={`${styles['modal-select-button']} ${
                       isSelected ? styles['modal-selected-button'] : ''
@@ -139,11 +142,15 @@ const ProductSelectionModal: React.FC<Props> = ({
             Cancelar
           </button>
           <button
-            className={styles['modal-confirm-button']}
+            className={`${
+              selectedProductId === null
+                ? styles['modal-not-confirm-button']
+                : styles['modal-confirm-button']
+            }`}
             onClick={handleConfirmSelection}
             disabled={selectedProductId === null}
           >
-            Confirmar selección
+            {selectedProductId === null ? "Seleccione un producto" : "Confirmar selección"}
           </button>
         </div>
       </div>

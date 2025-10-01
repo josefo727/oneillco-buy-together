@@ -51,7 +51,7 @@
 }
 
 .product-card.active {
-  border: 2px solid #e91e63;
+  border: 2px solid #4AB296;
 }
 
 .product-card:hover {
@@ -79,9 +79,6 @@
   line-height: 1.4;
   min-height: 45px;
 }
-.modal-content .product-title {
-  min-height: auto;
-}
 .product-price {
   font-family: var(--font-public-sans-bold);
   font-size: 20px;
@@ -92,22 +89,17 @@
 
 .options-section {
   display: flex;
-  align-items: center;
-  margin-bottom: 20px;
-}
-.modal-content .options-section {
-  margin-bottom: 10px;
   flex-direction: column;
-  align-items: flex-start;
+  margin-bottom: 20px;
 }
 .options-label {
   width: 50px;
-  font-family: var(--font-public-sans-regular);
-  font-size: 16px;
-  font-weight: 500;
+  font-family: "P22 Underground Pro";
+  font-weight: 900;
+  font-size: 11px;
+  line-height: 100%;
+  text-transform: uppercase;
   color: #000000;
-}
-.modal-content .options-label {
   margin-bottom: 8px;
 }
 .size-options {
@@ -115,18 +107,15 @@
   flex-wrap: wrap;
   gap: 8px;
 }
-.modal-content .size-btn {
-  border-radius: 5px;
-}
 .size-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 25px;
-  min-height: 25px;
+  min-width: 47px;
+  min-height: 30px;
   color: #000000;
-  background: #EBEBEB;
-  border: 2px solid #EBEBEB;
+  background: transparent;
+  border: 2px solid #000000;
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
@@ -134,14 +123,15 @@
 }
 
 .size-btn.active {
-  background-color: #e91e63;
-  border-color: #e91e63;
+  background-color: #4AB296;
+  border-color: #4AB296;
   color: #ffffff;
 }
 
 .size-btn:hover:not(.active) {
-  border-color: #e91e63;
-  background-color: #fce4ec;
+  border-color: #5EC1A8D8;
+  background-color: #5EC1A8D8;
+  color: #ffffff;
 }
 
 .color-options {
@@ -150,8 +140,8 @@
 }
 
 .color-btn {
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   border: 2px solid #ddd;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -324,6 +314,10 @@
   .product-info {
     width: 65%;
   }
+  .size-btn {
+    min-width: 30px;
+    min-height: 25px;
+  }
   .desktop {
     display: none;
   }
@@ -372,13 +366,310 @@
 .tallaDisabled {
   cursor: not-allowed;
   text-decoration: line-through;
-  color: #9B9B9B;
+  color: #000000;
+  border: 1px solid #000000;
+  background: transparent;
 }
 
-.modal-content .tallaDisabled {
-  background: #ffffff;
-  color: #EBEBEB;
-  border: 1px solid #EBEBEB;
-  cursor: not-allowed;
-  text-decoration: line-through;
+
+
+.collections-grid {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.collection-card {
+  width: 30%;
+  max-width: 280px;
+}
+.collection-card-selected {}
+.selected-product-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 380px;
+  overflow: hidden;
+}
+.selected-product-image img {
+  width: 100%;
+}
+.change-product-button {
+  position: absolute;
+  bottom: 20%;
+  border: 1px solid #000000;
+  width: 85%;
+  height: 50px;
+  background: #F3F5F773;
+  font-family: "P22 Underground Pro";
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0;
+  cursor: pointer;
+}
+.content-select-product {
+  background-color: #F3F5F7;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 380px;
+}
+.content-select-product img {
+  width: 80%;
+}
+.select-product-button {
+  position: absolute;
+  bottom: 20%;
+  border: 1px solid #000000;
+  width: 85%;
+  height: 50px;
+  background: #F3F5F7;
+  font-family: "P22 Underground Pro";
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0;
+  cursor: pointer;
+}
+.cart-section {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 20px auto;
+}
+.price,
+.discount {
+  font-family: "P22 Underground Pro";
+  font-size: 16px;
+  line-height: 100%;
+  color: #000000;
+}
+.empty-price,
+.total-price {
+  font-family: "P22 Underground Pro";
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 100%;
+}
+.empty-price {
+  color: #000000;
+}
+.total-price strong {
+  color: #4AB296;
+}
+.add-to-cart-button {
+  width: 400px;
+  height: 37px;
+  border: none;
+  background: #4ab296;
+  color: #ffffff;
+  font-family: "P22 Underground Pro";
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+  cursor: pointer;
+}
+.add-to-cart-loading {
+  cursor: unset;
+}
+.add-to-cart-disabled {
+  width: 400px;
+  height: 37px;
+  border: none;
+  background: #F3F5F7;
+  color: #D9D9D9;
+  font-family: "P22 Underground Pro";
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 100%;
+}
+@media screen and (max-width: 1024px) {
+  .collections-grid {
+    flex-direction: column;
+    align-items: center;
+    justify-content: normal;
+  }
+  .collection-card {
+    width: 100%;
+    max-width: 300px;
+    margin: 9px auto;
+  }
+
+  .selected-product-image,
+  .content-select-product {
+    height: 180px;
+  }
+  .content-select-product img {
+    width: auto;
+    height: 80%;
+  }
+
+  .cart-section {
+    justify-content: normal;
+    flex-direction: column;
+  }
+  .add-to-cart-button,
+  .add-to-cart-disabled {
+    width: 90%;
+    margin: 6px auto;
+  }
+  .price,
+  .discount,
+  .empty-price,
+  .total-price {
+    margin: 6px auto;
+  }
+}
+
+
+/*  Modal */
+
+.modal-container {}
+.modal-title {}
+.modal-products-grid {}
+.modal-product-card {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0 15px;
+  margin: 21px auto;
+  border-bottom: 1px solid #D9D9D9;
+}
+.modal-product-selected {}
+.modal-product-image {
+  width: 25%;
+  height: auto !important;
+  display: flex;
+  align-items: center;
+}
+.modal-product-info {
+  width: 70%;
+}
+.modal-product-name {
+  font-family: "P22 Underground Pro";
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 100%;
+  text-transform: uppercase;
+  color: #000000;
+  margin: 10px 0 5px;
+}
+.modal-product-reference {
+  font-family: "P22 Underground Pro";
+  font-weight: 400;
+  font-size: 9px;
+  line-height: 100%;
+  color: #000000;
+  margin-bottom: 12px;
+}
+.modal-product-price {
+  font-family: "P22 Underground Pro";
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 100%;
+  color: #4AB296;
+  margin-bottom: 20px;
+}
+
+.modal-select-button {
+  background: #E6E6E6;
+  color: #ACACAC;
+  border: none;
+  width: 273px;
+  height: 36px;
+  font-family: "P22 Underground Pro";
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 100%;
+  cursor: pointer;
+}
+.modal-selected-button {
+  background: #000000;
+  color: #FFFFFF;
+  width: 273px;
+  height: 36px;
+  font-family: "P22 Underground Pro";
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 100%;
+  cursor: pointer;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: space-evenly;
+}
+.modal-cancel-button {
+  background: transparent;
+  color: #000000;
+  border: 2px solid #000000;
+  width: 200px;
+  height: 36px;
+  font-family: "P22 Underground Pro";
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 100%;
+  cursor: pointer;
+}
+.modal-not-confirm-button {
+  background: #E6E6E6;
+  color: #ACACAC;
+  border: none;
+  width: 200px;
+  height: 36px;
+  font-family: "P22 Underground Pro";
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 100%;
+  cursor: unset;
+}
+.modal-confirm-button {
+  background: #000000;
+  color: #FFFFFF;
+  width: 200px;
+  height: 36px;
+  font-family: "P22 Underground Pro";
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 100%;
+  cursor: pointer;
+}
+@media screen and (max-width: 1024px) {
+
+  .modal-product-card {
+    margin: 18px auto;
+  }
+  .modal-product-image {
+    width: 32%;
+  }
+  .modal-product-info {
+    width: 65%;
+  }
+  .modal-product-name {
+    font-size: 17px;
+  }
+  .modal-product-reference {
+    font-size: 11px;
+  }
+
+  .modal-select-button,
+  .modal-selected-button {
+    width: 90%;
+    height: 35px;
+  }
+
+  .modal-actions {
+    justify-content: normal;
+    flex-direction: column;
+    align-items: center;
+  }
+  .modal-cancel-button,
+  .modal-not-confirm-button,
+  .modal-confirm-button {
+    margin-bottom: 8px;
+  }
 }

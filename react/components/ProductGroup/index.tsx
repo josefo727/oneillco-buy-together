@@ -143,33 +143,39 @@ const ProductGroup: StorefrontFunctionComponent<ProductGroupProps> = ({
                       src={transformImageUrl(selectedProduct.sku.image, 400)}
                       alt={selectedProduct.product.name}
                     />
+                    <button
+                      className={styles['change-product-button']}
+                      onClick={() => openModal(index)}
+                    >
+                      Cambiar producto
+                    </button>
                   </div>
-                  <div className={styles['selected-product-info']}>
-                    <h4>{selectedProduct.product.name}</h4>
-                    <p>{formatPrice(selectedProduct.sku.bestPrice / 100)}</p>
-                  </div>
-                  <button
-                    className={styles['change-product-button']}
-                    onClick={() => openModal(index)}
-                  >
-                    Cambiar producto
-                  </button>
                 </>
               ) : (
-                <button
-                  className={styles['select-product-button']}
-                  onClick={() => openModal(index)}
-                >
-                  Seleccionar producto
-                </button>
+                <div className={styles['content-select-product']}>
+                  <img src="https://oneillco.vteximg.com.br/arquivos/product-not-selected.svg" alt="product-not-selected"/>
+
+                  <button
+                    className={styles['select-product-button']}
+                    onClick={() => openModal(index)}
+                  >
+                    Seleccionar producto
+                  </button>
+                </div>
               )}
             </div>
           )
         })}
       </div>
 
-      {Object.keys(selectedProducts).length > 0 && (
+      {Object.keys(selectedProducts).length > 0 ?
         <div className={styles['cart-section']}>
+          <div className={styles['price']}>
+            <span>Precio antes: $149.900* </span>
+          </div>
+          <div className={styles['discount']}>
+            <span>Descuento Kit: $000.000.000</span>
+          </div>
           <div className={styles['total-price']}>
             <span>Total: </span>
             <strong>{formatPrice(totalPrice / 100)}</strong>
@@ -184,7 +190,26 @@ const ProductGroup: StorefrontFunctionComponent<ProductGroupProps> = ({
             {isAdding ? 'Agregando...' : 'Agregar al carrito'}
           </button>
         </div>
-      )}
+        :
+        <div className={styles['cart-section']}>
+          <div className={styles['price']}>
+            <span>Precio antes: $000.000.000 </span>
+          </div>
+          <div className={styles['discount']}>
+            <span>Descuento Kit: $000.000.000</span>
+          </div>
+          <div className={styles['empty-price']}>
+            <span>Total: </span>
+            <strong>$000.000.000</strong>
+          </div>
+          <button
+            className={styles['add-to-cart-disabled']}
+            disabled={true}
+          >
+            Agregar kit al carrito
+          </button>
+        </div>
+      }
 
       {modalState.isOpen && modalState.collectionIndex !== null && (
         <ProductSelectionModal
@@ -198,9 +223,9 @@ const ProductGroup: StorefrontFunctionComponent<ProductGroupProps> = ({
           currentSelectedProduct={
             selectedProducts[modalState.collectionIndex]
               ? {
-                  product: selectedProducts[modalState.collectionIndex].product,
-                  sku: selectedProducts[modalState.collectionIndex].sku,
-                }
+                product: selectedProducts[modalState.collectionIndex].product,
+                sku: selectedProducts[modalState.collectionIndex].sku,
+              }
               : undefined
           }
         />

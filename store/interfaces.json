@@ -6,56 +6,11 @@
       "description": "A banner with a title, subtitle, and highlight."
     }
   },
-  "titles-component": {
-    "component": "TitleComponent",
-    "messages": {
-      "title": "Titles Component",
-      "description": "title, subtitle, and highlight."
-    }
-  },
-  "alternating-content-section-component": {
-    "component": "AlternatingContentSection",
-    "messages": {
-      "title": "Alternating Content Section",
-      "description": "Alternating Content"
-    }
-  },
-  "shoppable-image": {
-    "component": "ShoppableImage",
-    "messages": {
-      "title": "Shoppable Image",
-      "description": "An image with clickable hotspots that link to products."
-    }
-  },
   "product-group": {
     "component": "ProductGroup",
     "messages": {
       "title": "Product Group",
       "description": "A group of products to be bought together."
     }
-  },
-  "rich-text-custom": {
-    "component": "RichTextCustom",
-    "messages": {
-      "title": "Rich Text Custom",
-      "description": "A custom rich text component."
-    }
-  },
-  "recommendations-shelf": {
-    "component": "RecommendationsShelf",
-    "messages": {
-      "title": "Recommendations Shelf",
-      "description": "A shelf for product recommendations."
-    }
-  },
-  "newsletter-form": {
-    "component": "NewsletterForm",
-    "messages": {
-      "title": "Newsletter Form",
-      "description": "A form for newsletter subscriptions."
-    }
-  },
-  "html-custom": {
-    "component": "HtmlCustom"
   }
 }

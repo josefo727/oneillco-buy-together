@@ -62,35 +62,9 @@ const SkuSelector: React.FC<Props> = ({
 
   return (
     <>
-      {dimensionsMap.Talla && dimensionsMap.Talla.length > 0 && (
-        <div className={styles['options-section']}>
-          <div className={styles['options-label']}>Talla</div>
-          <div className={styles['size-options']}>
-            {dimensionsMap.Talla.map((talla) => (
-              <button
-                key={talla}
-                title={talla}
-                onClick={() => handleDimensionChange('Talla', talla)}
-                className={`${styles['size-btn']} ${
-                  selectedSku.dimensions.Talla === talla ? styles.active : ''
-                } ${
-                  !skus.some(
-                    (sku) => sku.dimensions.Talla === talla && sku.available
-                  )
-                    ? styles.tallaDisabled
-                    : ''
-                }`}
-              >
-                {talla}
-              </button>
-            ))}
-          </div>
-        </div>
-      )}
-
       {dimensionsMap.Color && dimensionsMap.Color.length > 0 && (
         <div className={styles['options-section']}>
-          <div className={styles['options-label']}>Color</div>
+          <div className={styles['options-label']}>Color: </div>
           <div className={styles['color-options']}>
             {dimensionsMap.Color.map((color) => (
               <button
@@ -125,6 +99,31 @@ const SkuSelector: React.FC<Props> = ({
                   alt={color}
                   style={{ width: '100%', height: '100%' }}
                 />
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+      {dimensionsMap.Talla && dimensionsMap.Talla.length > 0 && (
+        <div className={styles['options-section']}>
+          <div className={styles['options-label']}>Talla: </div>
+          <div className={styles['size-options']}>
+            {dimensionsMap.Talla.map((talla) => (
+              <button
+                key={talla}
+                title={talla}
+                onClick={() => handleDimensionChange('Talla', talla)}
+                className={`${styles['size-btn']} ${
+                  selectedSku.dimensions.Talla === talla ? styles.active : ''
+                } ${
+                  !skus.some(
+                    (sku) => sku.dimensions.Talla === talla && sku.available
+                  )
+                    ? styles.tallaDisabled
+                    : ''
+                }`}
+              >
+                {talla}
               </button>
             ))}
           </div>
