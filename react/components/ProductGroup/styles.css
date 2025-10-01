@@ -526,8 +526,14 @@
 
 
 /*  Modal */
-
-.modal-container {}
+:global(.vtex-styleguide-9-x-scrollBar) {
+  padding: 23px 14px;
+}
+.modal-container {
+  margin-top: 20px;
+  max-height: 640px;
+  overflow: auto;
+}
 .modal-title {}
 .modal-products-grid {}
 .modal-product-card {
@@ -602,6 +608,7 @@
 .modal-actions {
   display: flex;
   justify-content: space-evenly;
+  padding-top: 15px;
 }
 .modal-cancel-button {
   background: transparent;
@@ -639,7 +646,12 @@
   cursor: pointer;
 }
 @media screen and (max-width: 1024px) {
-
+  :global(.vtex-styleguide-9-x-scrollBar) {
+    padding: 10px;
+  }
+  .modal-container {
+    max-height: 440px;
+  }
   .modal-product-card {
     margin: 18px auto;
   }

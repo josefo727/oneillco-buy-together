@@ -10,6 +10,7 @@ interface Props {
   products: Variation[]
   ordinalPosition: string
   onSelectProduct: (product: Variation, selectedSku: Sku) => void
+  onRemoveProduct: () => void
   currentSelectedProduct?: { product: Variation; sku: Sku }
 }
 
@@ -40,6 +41,7 @@ const ProductSelectionModal: React.FC<Props> = ({
   products,
   ordinalPosition,
   onSelectProduct,
+  onRemoveProduct,
   currentSelectedProduct,
 }) => {
   const [selectedProductId, setSelectedProductId] = useState<number | null>(
@@ -62,6 +64,7 @@ const ProductSelectionModal: React.FC<Props> = ({
         [product.productId]: firstAvailableSku,
       }))
     }
+    handleConfirmSelection()
   }
 
   const handleSkuChange = (productId: number, newSku: Sku) => {
@@ -76,6 +79,18 @@ const ProductSelectionModal: React.FC<Props> = ({
         onSelectProduct(product, sku)
         onClose()
       }
+    }
+  }
+  const removeSelected = () => {
+    if (selectedProductId !== null) {
+      setSelectedSkus((prev) => {
+        const newSkus = { ...prev }
+        delete newSkus[selectedProductId]
+        return newSkus
+      })
+      setSelectedProductId(null)
+      onRemoveProduct()
+      onClose()
     }
   }
 
@@ -137,22 +152,22 @@ const ProductSelectionModal: React.FC<Props> = ({
             )
           })}
         </div>
-        <div className={styles['modal-actions']}>
-          <button className={styles['modal-cancel-button']} onClick={onClose}>
-            Cancelar
-          </button>
-          <button
-            className={`${
-              selectedProductId === null
-                ? styles['modal-not-confirm-button']
-                : styles['modal-confirm-button']
-            }`}
-            onClick={handleConfirmSelection}
-            disabled={selectedProductId === null}
-          >
-            {selectedProductId === null ? "Seleccione un producto" : "Confirmar selección"}
-          </button>
-        </div>
+      </div>
+      <div className={styles['modal-actions']}>
+        <button className={styles['modal-cancel-button']} onClick={onClose}>
+          Cancelar
+        </button>
+        <button
+          className={`${
+            selectedProductId === null
+              ? styles['modal-not-confirm-button']
+              : styles['modal-confirm-button']
+          }`}
+          onClick={removeSelected}
+          disabled={selectedProductId === null}
+        >
+          {selectedProductId === null ? "Seleccione un producto" : "Eliminar producto"}
+        </button>
       </div>
     </Modal>
   )

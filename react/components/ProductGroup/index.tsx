@@ -74,7 +74,13 @@ const ProductGroup: StorefrontFunctionComponent<ProductGroupProps> = ({
       [collectionIndex]: { collectionIndex, product, sku },
     }))
   }
-
+  const handleRemoveProduct = (collectionIndex: number) => {
+    setSelectedProducts((prev) => {
+      const newProducts = { ...prev }
+      delete newProducts[collectionIndex]
+      return newProducts
+    })
+  }
   const handleAddToCart = async () => {
     const productsToAdd = Object.values(selectedProducts)
     if (productsToAdd.length === 0) return
@@ -220,6 +226,7 @@ const ProductGroup: StorefrontFunctionComponent<ProductGroupProps> = ({
           onSelectProduct={(product, sku) =>
             handleProductSelection(modalState.collectionIndex!, product, sku)
           }
+          onRemoveProduct={() => handleRemoveProduct(modalState.collectionIndex!)}
           currentSelectedProduct={
             selectedProducts[modalState.collectionIndex]
               ? {
