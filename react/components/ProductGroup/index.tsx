@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useMemo } from 'react'
 import useCollections from '../../hooks/useCollections'
 import { ProductGroupProps } from './typings'
 import styles from './styles.css'
@@ -6,6 +6,8 @@ import { useCartActions } from '../../hooks/useCartActions'
 import type { Variation, Sku } from '../../typings/variation'
 import { Progress } from 'vtex.styleguide'
 import ProductSelectionModal from './ProductSelectionModal'
+import { useCartSimulation } from '../../hooks/useCartSimulation'
+import type { CartSKU } from '../../typings/product'
 
 const formatPrice = (price: number) => {
   return new Intl.NumberFormat('es-CO', {
@@ -96,15 +98,20 @@ const ProductGroup: StorefrontFunctionComponent<ProductGroupProps> = ({
     await addProductsToCart(itemsToAdd)
   }
 
-  const totalPrice = Object.values(selectedProducts).reduce(
-    (sum, item) => sum + item.sku.bestPrice,
-    0
-  )
+  const cartSkus: CartSKU[] = useMemo(() => {
+    return Object.values(selectedProducts).map(item => ({
+      itemId: item.sku.sku.toString(),
+      price: item.sku.bestPrice,
+      sellerId: '1'
+    }))
+  }, [selectedProducts])
+
+  const { regularTotal, discountedTotal, discountPercentage, loading: simulationLoading } = useCartSimulation(cartSkus)
 
   if (loading) {
     return (
       <div className={styles.productGroupContainer}>
-        <Progress type="steps" danger steps={['inProgress']} />
+        <Progress type="steps" steps={['inProgress']} />
       </div>
     )
   }
@@ -174,48 +181,37 @@ const ProductGroup: StorefrontFunctionComponent<ProductGroupProps> = ({
         })}
       </div>
 
-      {Object.keys(selectedProducts).length > 0 ?
+      {Object.keys(selectedProducts).length > 0 ? (
         <div className={styles['cart-section']}>
           <div className={styles['price']}>
-            <span>Precio antes: $149.900* </span>
+            <span>Precio antes: {formatPrice(regularTotal)}</span>
           </div>
-          <div className={styles['discount']}>
-            <span>Descuento Kit: $000.000.000</span>
-          </div>
+          {discountPercentage && discountPercentage > 0 && (
+            <div className={styles['discount']}>
+              <span>Descuento Kit: {discountPercentage}% ({formatPrice(regularTotal - (discountedTotal || 0))})</span>
+            </div>
+          )}
           <div className={styles['total-price']}>
             <span>Total: </span>
-            <strong>{formatPrice(totalPrice / 100)}</strong>
+            <strong>{formatPrice(discountedTotal || regularTotal)}</strong>
           </div>
           <button
             className={`${styles['add-to-cart-button']} ${
               isAdding ? styles['add-to-cart-loading'] : ''
             }`}
             onClick={handleAddToCart}
-            disabled={isAdding}
+            disabled={isAdding || simulationLoading}
           >
             {isAdding ? 'Agregando...' : 'Agregar al carrito'}
           </button>
         </div>
-        :
+      ) : (
         <div className={styles['cart-section']}>
-          <div className={styles['price']}>
-            <span>Precio antes: $000.000.000 </span>
+          <div className={styles['empty-cart-message']}>
+            <span>Selecciona tus productos para realizar tu compra</span>
           </div>
-          <div className={styles['discount']}>
-            <span>Descuento Kit: $000.000.000</span>
-          </div>
-          <div className={styles['empty-price']}>
-            <span>Total: </span>
-            <strong>$000.000.000</strong>
-          </div>
-          <button
-            className={styles['add-to-cart-disabled']}
-            disabled={true}
-          >
-            Agregar kit al carrito
-          </button>
         </div>
-      }
+      )}
 
       {modalState.isOpen && modalState.collectionIndex !== null && (
         <ProductSelectionModal

@@ -604,6 +604,31 @@
   line-height: 100%;
   cursor: pointer;
 }
+.modal-adding-button {
+  background: #E6E6E6;
+  color: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+}
+.progress-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: #4ab296;
+  width: 100%;
+  animation: progress-animation 500ms linear;
+  z-index: 0;
+}
+
+@keyframes progress-animation {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
 
 .modal-actions {
   display: flex;

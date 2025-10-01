@@ -52,46 +52,30 @@ const ProductSelectionModal: React.FC<Props> = ({
       ? { [currentSelectedProduct.product.productId]: currentSelectedProduct.sku }
       : {}
   )
+  const [isAdding, setIsAdding] = useState<number | null>(null)
 
   const handleProductSelect = (product: Variation) => {
-    setSelectedProductId(product.productId)
+    const sku = selectedSkus[product.productId] ||
+      product.skus.find((sku) => sku.available) ||
+      product.skus[0]
 
-    if (!selectedSkus[product.productId]) {
-      const firstAvailableSku =
-        product.skus.find((sku) => sku.available) || product.skus[0]
-      setSelectedSkus((prev) => ({
-        ...prev,
-        [product.productId]: firstAvailableSku,
-      }))
-    }
-    handleConfirmSelection()
+    setIsAdding(product.productId)
+
+    setTimeout(() => {
+      onSelectProduct(product, sku)
+      setIsAdding(null)
+      onClose()
+    }, 500)
   }
 
   const handleSkuChange = (productId: number, newSku: Sku) => {
     setSelectedSkus((prev) => ({ ...prev, [productId]: newSku }))
   }
 
-  const handleConfirmSelection = () => {
-    if (selectedProductId !== null) {
-      const product = products.find((p) => p.productId === selectedProductId)
-      const sku = selectedSkus[selectedProductId]
-      if (product && sku) {
-        onSelectProduct(product, sku)
-        onClose()
-      }
-    }
-  }
   const removeSelected = () => {
-    if (selectedProductId !== null) {
-      setSelectedSkus((prev) => {
-        const newSkus = { ...prev }
-        delete newSkus[selectedProductId]
-        return newSkus
-      })
-      setSelectedProductId(null)
-      onRemoveProduct()
-      onClose()
-    }
+    setSelectedSkus({})
+    setSelectedProductId(null)
+    onRemoveProduct()
   }
 
   return (
@@ -141,11 +125,16 @@ const ProductSelectionModal: React.FC<Props> = ({
                   <button
                     className={`${styles['modal-select-button']} ${
                       isSelected ? styles['modal-selected-button'] : ''
-                    }`}
+                    } ${isAdding === product.productId ? styles['modal-adding-button'] : ''}`}
                     onClick={() => handleProductSelect(product)}
-                    disabled={isSelected}
+                    disabled={isSelected || isAdding !== null}
                   >
-                    {isSelected ? 'Seleccionado' : 'Seleccionar'}
+                    {isAdding === product.productId && (
+                      <div className={styles['progress-bar']} />
+                    )}
+                    <span style={{ position: 'relative', zIndex: 1 }}>
+                      {isAdding === product.productId ? 'Añadiendo' : isSelected ? 'Seleccionado' : 'Seleccionar'}
+                    </span>
                   </button>
                 </div>
               </div>
@@ -157,17 +146,18 @@ const ProductSelectionModal: React.FC<Props> = ({
         <button className={styles['modal-cancel-button']} onClick={onClose}>
           Cancelar
         </button>
-        <button
-          className={`${
-            selectedProductId === null
-              ? styles['modal-not-confirm-button']
-              : styles['modal-confirm-button']
-          }`}
-          onClick={removeSelected}
-          disabled={selectedProductId === null}
-        >
-          {selectedProductId === null ? "Seleccione un producto" : "Eliminar producto"}
-        </button>
+        {currentSelectedProduct ? (
+          <button
+            className={styles['modal-confirm-button']}
+            onClick={removeSelected}
+          >
+            Eliminar producto
+          </button>
+        ) : (
+          <span className={styles['modal-info-text']}>
+            Añade un producto de la colección
+          </span>
+        )}
       </div>
     </Modal>
   )
