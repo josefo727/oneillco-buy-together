@@ -45,7 +45,7 @@ const SkuSelector: React.FC<Props> = ({
       onSkuChange(newSku)
     }
   }
-
+/*
   const getColorImageUrl = (color: string) => {
     const skuForColor = skus.find((sku) => sku.dimensions.Color === color)
 
@@ -58,6 +58,11 @@ const SkuSelector: React.FC<Props> = ({
       0,
       baseUrl.lastIndexOf('/')
     )}/${imageId}-46-46/width=46&height=46&aspect=true`
+  }
+*/
+  const getColorImageSlugUrl = (color: string) => {
+    const slug = color.toLowerCase().replace(/ /g, '-')
+    return `/arquivos/${slug}.jpg`
   }
 
   return (
@@ -95,7 +100,7 @@ const SkuSelector: React.FC<Props> = ({
                   </>
                 )}
                 <img
-                  src={getColorImageUrl(color)}
+                  src={getColorImageSlugUrl(color)}
                   alt={color}
                   style={{ width: '100%', height: '100%' }}
                 />
