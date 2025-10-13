@@ -12,22 +12,20 @@
   text-align: center;
 }
 .Subtitle {
-  font-family: Merriweather;
-  font-style: italic;
+  font-family: "P22UndergroundCYPro-Demi";
   font-size: 26px;
-  font-weight: 300;
+  font-weight: 600;
   line-height: 100%;
-  letter-spacing: 0;
+  letter-spacing: 1px;
   margin: 5px auto;
 }
-
 .Highlight {
-  font-family: Merriweather;
-  font-style: italic;
+  letter-spacing: 1px;
+  color: #000;
+  font-family: "P22UndergroundCYPro-Book";
   font-size: 16px;
   font-weight: 300;
   line-height: 100%;
-  letter-spacing: 0;
   margin: 5px auto;
 }
 .Shop-the-look {
@@ -94,12 +92,13 @@
 }
 .options-label {
   width: 50px;
-  font-family: "P22 Underground Pro";
+  color: #000000;
+  font-family: "P22UndergroundCYPro-Heavy";
   font-weight: 900;
-  font-size: 11px;
+  font-size: 10px;
   line-height: 100%;
   text-transform: uppercase;
-  color: #000000;
+  letter-spacing: 0.5px;
   margin-bottom: 8px;
 }
 .size-options {
@@ -111,12 +110,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: 'P22UndergroundCYPro-Book';
   min-width: 47px;
   min-height: 30px;
   color: #000000;
   background: transparent;
   border: 2px solid #000000;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -131,6 +131,11 @@
 .size-btn:hover:not(.active) {
   border-color: #5EC1A8D8;
   background-color: #5EC1A8D8;
+  color: #ffffff;
+}
+.size-btn.active:hover {
+  border-color: #000000;
+  background-color: #000000;
   color: #ffffff;
 }
 
@@ -284,7 +289,7 @@
   }
   .product-title,
   .options-label {
-    font-size: 12px;
+    font-size: 10px;
     margin-bottom: 5px;
   }
   .product-price {
@@ -315,6 +320,7 @@
     width: 65%;
   }
   .size-btn {
+    font-size: 15px;
     min-width: 30px;
     min-height: 25px;
   }
@@ -397,16 +403,16 @@
 }
 .change-product-button {
   position: absolute;
-  bottom: 20%;
+  bottom: 10%;
   border: 1px solid #000000;
   width: 85%;
   height: 50px;
   background: #F3F5F773;
-  font-family: "P22 Underground Pro";
+  font-family: "P22UndergroundCYPro-Demi";
   font-weight: 300;
   font-size: 16px;
   line-height: 100%;
-  letter-spacing: 0;
+  letter-spacing: 0.5px;
   cursor: pointer;
 }
 .content-select-product {
@@ -427,7 +433,7 @@
   width: 85%;
   height: 50px;
   background: #F3F5F7;
-  font-family: "P22 Underground Pro";
+  font-family: "P22UndergroundCYPro-Book";
   font-weight: 300;
   font-size: 16px;
   line-height: 100%;
@@ -442,14 +448,14 @@
 }
 .price,
 .discount {
-  font-family: "P22 Underground Pro";
+  font-family: "P22UndergroundCYPro-Book";
   font-size: 16px;
   line-height: 100%;
   color: #000000;
 }
 .empty-price,
 .total-price {
-  font-family: "P22 Underground Pro";
+  font-family: "P22UndergroundCYPro-Demi";
   font-weight: 600;
   font-size: 16px;
   line-height: 100%;
@@ -466,7 +472,7 @@
   border: none;
   background: #4ab296;
   color: #ffffff;
-  font-family: "P22 Underground Pro";
+  font-family: 'P22UndergroundCYPro-Book';
   font-weight: 500;
   font-size: 16px;
   line-height: 100%;
@@ -481,7 +487,7 @@
   border: none;
   background: #F3F5F7;
   color: #D9D9D9;
-  font-family: "P22 Underground Pro";
+  font-family: 'P22UndergroundCYPro-Book';
   font-weight: 500;
   font-size: 16px;
   line-height: 100%;
@@ -531,10 +537,18 @@
 }
 .modal-container {
   margin-top: 20px;
-  max-height: 640px;
+  max-height: 510px;
   overflow: auto;
 }
-.modal-title {}
+.modal-title {
+  font-family: "P22UndergroundCYPro-Demi";
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 100%;
+  letter-spacing: 0.5px;
+  margin: 5px auto;
+  text-align: center;
+}
 .modal-products-grid {}
 .modal-product-card {
   width: 100%;
@@ -556,24 +570,24 @@
   width: 70%;
 }
 .modal-product-name {
-  font-family: "P22 Underground Pro";
+  font-family: "P22UndergroundCYPro-Demi";
   font-weight: 600;
-  font-size: 16px;
+  font-size: 17px;
   line-height: 100%;
   text-transform: uppercase;
   color: #000000;
   margin: 10px 0 5px;
 }
 .modal-product-reference {
-  font-family: "P22 Underground Pro";
+  font-family: "P22UndergroundCYPro-Book";
   font-weight: 400;
-  font-size: 9px;
+  font-size: 12px;
   line-height: 100%;
   color: #000000;
   margin-bottom: 12px;
 }
 .modal-product-price {
-  font-family: "P22 Underground Pro";
+  font-family: "P22UndergroundCYPro-Book";
   font-weight: 600;
   font-size: 16px;
   line-height: 100%;
@@ -582,12 +596,12 @@
 }
 
 .modal-select-button {
+  width: 273px;
+  height: 36px;
   background: #E6E6E6;
   color: #ACACAC;
   border: none;
-  width: 273px;
-  height: 36px;
-  font-family: "P22 Underground Pro";
+  font-family: 'P22UndergroundCYPro-Demi';
   font-weight: 600;
   font-size: 18px;
   line-height: 100%;
@@ -598,7 +612,7 @@
   color: #FFFFFF;
   width: 273px;
   height: 36px;
-  font-family: "P22 Underground Pro";
+  font-family: 'P22UndergroundCYPro-Demi';
   font-weight: 600;
   font-size: 18px;
   line-height: 100%;
@@ -687,10 +701,10 @@
     width: 65%;
   }
   .modal-product-name {
-    font-size: 17px;
+    font-size: 12px;
   }
   .modal-product-reference {
-    font-size: 11px;
+    font-size: 8px;
   }
 
   .modal-select-button,

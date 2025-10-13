@@ -43,6 +43,7 @@ interface SelectedProduct {
 
 const ProductGroup: StorefrontFunctionComponent<ProductGroupProps> = ({
   collectionIds = [],
+  ImageSelectProduct = "https://oneillco.vteximg.com.br/arquivos/product-not-selected.svg"
 }) => {
   const { collections, loading, error } = useCollections(collectionIds)
   const { addProductsToCart, isAdding } = useCartActions()
@@ -166,7 +167,7 @@ const ProductGroup: StorefrontFunctionComponent<ProductGroupProps> = ({
                 </>
               ) : (
                 <div className={styles['content-select-product']}>
-                  <img src="https://oneillco.vteximg.com.br/arquivos/product-not-selected.svg" alt="product-not-selected"/>
+                  <img src={ImageSelectProduct} alt="product-not-selected"/>
 
                   <button
                     className={styles['select-product-button']}
@@ -192,7 +193,7 @@ const ProductGroup: StorefrontFunctionComponent<ProductGroupProps> = ({
             </div>
           )}
           <div className={styles['total-price']}>
-            <span>Total: </span>
+            <span>Total Kits: </span>
             <strong>{formatPrice(discountedTotal || regularTotal)}</strong>
           </div>
           <button
@@ -207,9 +208,19 @@ const ProductGroup: StorefrontFunctionComponent<ProductGroupProps> = ({
         </div>
       ) : (
         <div className={styles['cart-section']}>
-          <div className={styles['empty-cart-message']}>
-            <span>Selecciona tus productos para realizar tu compra</span>
+          <div className={styles['price']}>
+            <span>Precio antes: $0</span>
           </div>
+          <div className={styles['discount']}>
+            <span>Descuento Kit: $0</span>
+          </div>
+          <div className={styles['total-price']}>
+            <span>Total Kits: <strong>$0</strong></span>
+          </div>
+          <button
+            className={styles['add-to-cart-disabled']}
+            disabled={true}
+          > Agregar al carrito </button>
         </div>
       )}
 
@@ -242,6 +253,14 @@ ProductGroup.schema = {
   description: 'A group of products to be bought together from collections.',
   type: 'object',
   properties: {
+    ImageSelectProduct: {
+      title: "Image Select Product",
+      type: 'string',
+      widget: {
+        'ui:widget': 'image-uploader',
+      },
+      default: "https://oneillco.vteximg.com.br/arquivos/product-not-selected.svg"
+    },
     collectionIds: {
       title: 'Collection IDs',
       type: 'array',
@@ -249,9 +268,9 @@ ProductGroup.schema = {
         title: 'Collection ID',
         type: 'number',
         default: 226,
-      },
-    },
-  },
+      }
+    }
+  }
 }
 
 export default ProductGroup
