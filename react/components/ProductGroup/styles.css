@@ -107,9 +107,7 @@
   gap: 8px;
 }
 .size-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding-top: 5px;;
   font-family: 'P22UndergroundCYPro-Book';
   min-width: 47px;
   min-height: 30px;
