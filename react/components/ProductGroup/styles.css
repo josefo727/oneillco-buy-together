@@ -530,13 +530,33 @@
 
 
 /*  Modal */
+:global(.vtex-modal__modal) {
+  max-width: 680px;
+}
 :global(.vtex-styleguide-9-x-scrollBar) {
-  padding: 23px 14px;
+  padding: 23px 5px;
+}
+:global(.vtex-modal__close-icon) {
+  display: none;
 }
 .modal-container {
-  margin-top: 20px;
+  scrollbar-width: none;
   max-height: 510px;
   overflow: auto;
+}
+.modal-close {
+  display: flex;
+  align-items: center;
+  padding-bottom: 23px;
+  border-bottom: 1px solid #D9D9D9;
+}
+.modal-close-icon {
+  width: 10%;
+}
+.modal-close-icon img {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
 }
 .modal-title {
   font-family: "P22UndergroundCYPro-Demi";
@@ -688,6 +708,17 @@
   }
   .modal-container {
     max-height: 440px;
+  }
+  .modal-close {
+    padding-top: 16px;
+  }
+  .modal-close-icon {
+    width: 70px;
+    display: flex;
+    justify-content: center;
+  }
+  .modal-title {
+    width: 70%;
   }
   .modal-product-card {
     margin: 18px auto;

@@ -79,11 +79,14 @@ const ProductSelectionModal: React.FC<Props> = ({
   }
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} centered>
+    <Modal isOpen={isOpen} centered>
       <div className={styles['modal-container']}>
-        <h2 className={styles['modal-title']}>
-          Selecciona tu {ordinalPosition} producto
-        </h2>
+        <div className={styles["modal-close"]}>
+          <h2 className={styles['modal-title']}>
+            Selecciona tu {ordinalPosition} producto
+          </h2>
+          <span className={styles["modal-close-icon"]} onClick={onClose} ><img src="https://oneillco.vteximg.com.br/arquivos/close_modal.svg" alt="close"/></span>
+        </div>
         <div className={styles['modal-products-grid']}>
           {products.map((product) => {
             const isSelected = selectedProductId === product.productId
