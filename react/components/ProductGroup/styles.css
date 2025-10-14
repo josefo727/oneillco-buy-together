@@ -567,7 +567,9 @@
   margin: 5px auto;
   text-align: center;
 }
-.modal-products-grid {}
+.modal-products-grid {
+  padding: 0 10px;
+}
 .modal-product-card {
   width: 100%;
   max-width: 800px;
@@ -716,9 +718,6 @@
     width: 70px;
     display: flex;
     justify-content: center;
-  }
-  .modal-title {
-    width: 70%;
   }
   .modal-product-card {
     margin: 18px auto;
