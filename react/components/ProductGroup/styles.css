@@ -619,17 +619,24 @@
   width: 273px;
   height: 36px;
   background: #E6E6E6;
-  color: #ACACAC;
-  border: none;
+  color: #000000;
+  border: 1px solid #000000;
   font-family: 'P22UndergroundCYPro-Demi';
   font-weight: 600;
   font-size: 18px;
   line-height: 100%;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+.modal-select-button:hover {
+  border-color: #5EC1A8D8;
+  background-color: #5EC1A8D8;
+  color: #ffffff;
 }
 .modal-selected-button {
-  background: #000000;
+  background: #4AB296;
   color: #FFFFFF;
+  border: 1px solid #4AB296;
   width: 273px;
   height: 36px;
   font-family: 'P22UndergroundCYPro-Demi';
@@ -637,6 +644,12 @@
   font-size: 18px;
   line-height: 100%;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+.modal-selected-button:hover {
+  border-color: #000000;
+  background-color: #000000;
+  color: #ffffff;
 }
 .modal-adding-button {
   background: #E6E6E6;
@@ -696,6 +709,7 @@
 .modal-confirm-button {
   background: #000000;
   color: #FFFFFF;
+  border: 1px solid #000000;
   width: 200px;
   height: 36px;
   font-family: "P22 Underground Pro";
@@ -703,6 +717,12 @@
   font-size: 18px;
   line-height: 100%;
   cursor: pointer;
+  transition: all 0.3s ease;
+}
+.modal-confirm-button:hover {
+  border-color: #5EC1A8D8;
+  background-color: #5EC1A8D8;
+  color: #ffffff;
 }
 @media screen and (max-width: 1024px) {
   :global(.vtex-styleguide-9-x-scrollBar) {
