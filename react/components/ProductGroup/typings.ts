@@ -1,5 +1,10 @@
 export interface ProductGroupProps {
-  ImageSelectProduct?: string
+  imageSelectProduct?: ImageSelectProductProps
   productsAndSkuIds?: string[]
   collectionIds?: number[]
+}
+export interface ImageSelectProductProps {
+  primaryImage: string
+  secondaryImage: string
+  tertiaryImage: string
 }

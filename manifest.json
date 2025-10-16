@@ -10,7 +10,6 @@
     "docs": "0.x",
     "store": "0.x",
     "node": "7.x",
-    "assets": "0.x",
     "styles": "2.x"
   },
   "dependencies": {

@@ -43,7 +43,11 @@ interface SelectedProduct {
 
 const ProductGroup: StorefrontFunctionComponent<ProductGroupProps> = ({
   collectionIds = [],
-  ImageSelectProduct = "https://oneillco.vteximg.com.br/arquivos/product-not-selected.svg"
+  imageSelectProduct = {
+    primaryImage: "https://oneillco.vteximg.com.br/arquivos/product-not-selected.svg",
+    secondaryImage: "https://oneillco.vteximg.com.br/arquivos/product-not-selected.svg",
+    tertiaryImage: "https://oneillco.vteximg.com.br/arquivos/product-not-selected.svg"
+  }
 }) => {
   const { collections, loading, error } = useCollections(collectionIds)
   const { addProductsToCart, isAdding } = useCartActions()
@@ -142,7 +146,12 @@ const ProductGroup: StorefrontFunctionComponent<ProductGroupProps> = ({
         {collections.map((_, index) => {
           const selectedProduct = selectedProducts[index]
           const hasSelection = !!selectedProduct
-
+          console.log('imageSelectProduct: ',{imageSelectProduct})
+          const imageUrl =
+            index === 0 ? imageSelectProduct?.primaryImage :
+            index === 1 ? imageSelectProduct?.secondaryImage :
+            index === 2 ? imageSelectProduct?.tertiaryImage :
+                "https://oneillco.vteximg.com.br/arquivos/product-not-selected.svg"
           return (
             <div
               key={index}
@@ -167,7 +176,7 @@ const ProductGroup: StorefrontFunctionComponent<ProductGroupProps> = ({
                 </>
               ) : (
                 <div className={styles['content-select-product']}>
-                  <img src={ImageSelectProduct} alt="product-not-selected"/>
+                  <img src={imageUrl} alt="product-not-selected"/>
 
                   <button
                     className={styles['select-product-button']}
@@ -253,13 +262,35 @@ ProductGroup.schema = {
   description: 'A group of products to be bought together from collections.',
   type: 'object',
   properties: {
-    ImageSelectProduct: {
+    imageSelectProduct: {
       title: "Image Select Product",
-      type: 'string',
-      widget: {
-        'ui:widget': 'image-uploader',
-      },
-      default: "https://oneillco.vteximg.com.br/arquivos/product-not-selected.svg"
+      type: 'object',
+      properties: {
+        primaryImage: {
+          title: "Primera Imagen",
+          type: 'string',
+          widget: {
+            'ui:widget': 'image-uploader',
+          },
+          default: "https://oneillco.vteximg.com.br/arquivos/product-not-selected.svg"
+        },
+        secondaryImage: {
+          title: "Segunda Images",
+          type: 'string',
+          widget: {
+            'ui:widget': 'image-uploader',
+          },
+          default: "https://oneillco.vteximg.com.br/arquivos/product-not-selected.svg"
+        },
+        tertiaryImage: {
+          title: "Tercera images",
+          type: 'string',
+          widget: {
+            'ui:widget': 'image-uploader',
+          },
+          default: "https://oneillco.vteximg.com.br/arquivos/product-not-selected.svg"
+        },
+      }
     },
     collectionIds: {
       title: 'Collection IDs',
