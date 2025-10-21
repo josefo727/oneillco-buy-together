@@ -316,20 +316,15 @@
 .modal-select-button {
   width: 273px;
   height: 36px;
-  background: #ffffff;
-  color: #000000;
-  border: 1px solid #000000;
+  border: 1px solid #5EC1A8D8;
+  background-color: #5EC1A8D8;
+  color: #ffffff;
   font-family: 'P22UndergroundCYPro-Demi';
   font-weight: 600;
   font-size: 18px;
   line-height: 100%;
   cursor: pointer;
   transition: all 0.3s ease;
-}
-.modal-select-button:hover {
-  border-color: #5EC1A8D8;
-  background-color: #5EC1A8D8;
-  color: #ffffff;
 }
 .modal-selected-button {
   background: #4AB296;
@@ -344,6 +339,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
 }
+.modal-select-button:hover,
 .modal-selected-button:hover {
   border-color: #000000;
   background-color: #000000;
