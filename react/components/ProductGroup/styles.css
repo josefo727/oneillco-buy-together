@@ -326,10 +326,15 @@
   cursor: pointer;
   transition: all 0.3s ease;
 }
+.modal-select-button:hover {
+  border-color: #000000;
+  background-color: #000000;
+  color: #ffffff;
+}
 .modal-selected-button {
-  background: #4AB296;
-  color: #FFFFFF;
-  border: 1px solid #4AB296;
+  border-color: #000000;
+  background-color: #000000;
+  color: #ffffff;
   width: 273px;
   height: 36px;
   font-family: 'P22UndergroundCYPro-Demi';
@@ -339,11 +344,10 @@
   cursor: pointer;
   transition: all 0.3s ease;
 }
-.modal-select-button:hover,
 .modal-selected-button:hover {
-  border-color: #000000;
-  background-color: #000000;
-  color: #ffffff;
+  background: #4AB296;
+  color: #FFFFFF;
+  border: 1px solid #4AB296;
 }
 .modal-adding-button {
   background: #E6E6E6;
